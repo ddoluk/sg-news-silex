@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <div class="col-md-10 col-md-offset-1">
+        <div class="row">
+            {% for news in all_news %}
+                <h3>{{ news.title }}</h3>
+
+                <div class="row">
+                    {{ news.description | raw }}
+                    <a href="{{ news.link }}">Детальніше</a>
+                    <div>
+                        <span class="badge">{{ news.pub_date }}</span>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="row">
+        <div class="text-center">{{ pagination.get() | raw }}</div>
+    </div>
+{% endblock %}
